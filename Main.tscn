@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://assets/stars_far.png" type="Texture" id=2]
+[ext_resource path="res://Ship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/button_left.png" type="Texture" id=5]
+[ext_resource path="res://assets/button_right.png" type="Texture" id=6]
+[ext_resource path="res://assets/button_fire.png" type="Texture" id=7]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/stars_far.png-adb5457c17611af68dab56af19abb067.stex"
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Stars_Far" type="Node2D" parent="."]
+
+[node name="Stars_Far_0" type="Sprite" parent="Stars_Far"]
+scale = Vector2( 5.77153, 3.59219 )
+texture = SubResource( 1 )
+centered = false
+
+[node name="Stars_Far_1" type="Sprite" parent="Stars_Far"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Stars_Close" type="Node2D" parent="."]
+
+[node name="Stars_Close_0" type="Sprite" parent="Stars_Close"]
+
+[node name="Stars_Close_1" type="Sprite" parent="Stars_Close"]
+
+[node name="Ship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 457.201, 386.486 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 596.256, 159.002 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 424.005, 127.201 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 204.052, 137.801 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 901.01, 103.351 )
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="."]
+position = Vector2( 64.1586, 460.268 )
+scale = Vector2( 0.25, 0.25 )
+normal = ExtResource( 5 )
+action = "ui_left"
+
+[node name="ButtonRight" type="TouchScreenButton" parent="."]
+position = Vector2( 198.055, 457.479 )
+scale = Vector2( 0.25, 0.25 )
+normal = ExtResource( 6 )
+action = "ui_right"
+
+[node name="ButtonFire" type="TouchScreenButton" parent="."]
+position = Vector2( 870.325, 463.058 )
+scale = Vector2( 0.25, 0.25 )
+normal = ExtResource( 7 )
+action = "ui_accept"
